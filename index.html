@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ayomikun Adeboye | Portfolio</title>
+
+  <meta name="description"
+    content="Ayomikun Adeboye — software developer, graphic designer and entrepreneur building digital experiences, products and brands with purpose.">
+
+  <style>
+    :root {
+      --bg: #070707;
+      --surface: #101010;
+      --surface-2: #171717;
+      --text: #f5f5f5;
+      --muted: #a4a4a4;
+      --gold: #d4af37;
+      --gold-light: #f0d477;
+      --border: rgba(212,175,55,.22);
+      --max: 1120px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: var(--max);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(7,7,7,.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ccc;
+      font-size: .92rem;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .menu {
+      display: none;
+      background: none;
+      border: 0;
+      color: white;
+      font-size: 1.7rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      background: rgba(212,175,55,.10);
+      filter: blur(100px);
+      border-radius: 50%;
+      right: -120px;
+      top: 100px;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: .75rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 9vw, 7rem);
+      line-height: .95;
+      letter-spacing: -5px;
+      margin-bottom: 28px;
+    }
+
+    h1 span {
+      color: var(--gold);
+    }
+
+    .hero-text {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.15rem;
+      margin-bottom: 38px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 23px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: .9rem;
+      transition: .3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #080808;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      color: var(--gold);
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      letter-spacing: -2px;
+      margin-bottom: 25px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 55px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .about-card {
+      background: linear-gradient(145deg, #151515, #0c0c0c);
+      border: 1px solid var(--border);
+      padding: 38px;
+      position: relative;
+    }
+
+    .about-card::before {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 70px;
+      background: var(--gold);
+      left: 0;
+      top: 35px;
+    }
+
+    .about-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+    }
+
+    /* SERVICES */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,.07);
+      padding: 32px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: var(--border);
+    }
+
+    .card-number {
+      color: var(--gold);
+      font-size: .8rem;
+      margin-bottom: 35px;
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 13px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      min-height: 330px;
+      background:
+        linear-gradient(135deg, #191919, #090909);
+      border: 1px solid rgba(255,255,255,.07);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(212,175,55,.08);
+      right: -70px;
+      top: -70px;
+    }
+
+    .project small {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .project h3 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .project p {
+      color: var(--muted);
+      max-width: 500px;
+    }
+
+    /* SKILLS */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 12px 18px;
+      color: #ddd;
+      font-size: .9rem;
+      transition: .3s;
+    }
+
+    .skill:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      background: linear-gradient(135deg, #151515, #0b0b0b);
+      border: 1px solid var(--border);
+      padding: 60px;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      margin-bottom: 18px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 30px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #888;
+      font-size: .85rem;
+    }
+
+    .socials {
+      display: flex;
+      gap: 18px;
+    }
+
+    .socials a:hover {
+      color: var(--gold);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .menu {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: #0a0a0a;
+        flex-direction: column;
+        padding: 25px 5%;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .about-grid,
+      .cards,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        gap: 35px;
+      }
+
+      .contact-box {
+        padding: 40px 22px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="#home" class="logo">AYOMIKUN<span>.</span></a>
+
+      <button class="menu" id="menu">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            Software • Design • Entrepreneurship
+          </div>
+
+          <h1>
+            I build things<br>
+            that <span>matter.</span>
+          </h1>
+
+          <p class="hero-text">
+            I'm Ayomikun Adeboye — a software developer, graphic designer
+            and entrepreneur focused on creating useful digital experiences,
+            products and brands with purpose.
+          </p>
+
+          <div class="buttons">
+            <a href="#work" class="btn btn-primary">
+              View My Work
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+              Let's Talk
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+
+        <div class="section-label">01 — About</div>
+
+        <div class="about-grid">
+
+          <div class="about-copy">
+            <h2 class="section-title">
+              More than just<br>code.
+            </h2>
+
+            <p>
+              I combine technology, creativity and business thinking
+              to turn ideas into digital experiences.
+            </p>
+
+            <p>
+              Whether I'm building a website, developing a digital
+              product, creating a visual identity or exploring a new
+              business idea, my goal is the same: create work that
+              is useful, memorable and built to last.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <h3>My approach</h3>
+
+            <p>
+              Think clearly. Design intentionally. Build properly.
+              Keep learning. Keep improving.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+
+        <div class="section-label">02 — What I Do</div>
+
+        <h2 class="section-title">Capabilities</h2>
+
+        <p class="section-intro">
+          A multidisciplinary approach that brings development,
+          design and business together.
+        </p>
+
+        <div class="cards">
+
+          <div class="card">
+            <div class="card-number">01</div>
+            <h3>Software Development</h3>
+            <p>
+              Building responsive, functional and user-focused
+              digital experiences with modern web technologies.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">02</div>
+            <h3>Graphic Design</h3>
+            <p>
+              Creating visual identities, digital graphics and
+              designs that communicate ideas clearly.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">03</div>
+            <h3>Digital Products</h3>
+            <p>
+              Turning ideas into practical digital products and
+              experiences designed around real problems.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+      <div class="container">
+
+        <div class="section-label">03 — Selected Work</div>
+
+        <h2 class="section-title">Things I'm building.</h2>
+
+        <p class="section-intro">
+          A growing collection of digital projects, creative work
+          and experiments.
+        </p>
+
+        <div class="projects">
+
+          <article class="project">
+            <small>Digital Product</small>
+            <h3>Product & Web Experiences</h3>
+            <p>
+              Digital experiences focused on usability, performance
+              and meaningful interaction.
+            </p>
+          </article>
+
+          <article class="project">
+            <small>Creative Direction</small>
+            <h3>Brand & Visual Design</h3>
+            <p>
+              Visual concepts and brand systems created to give
+              ideas a strong identity.
+            </p>
+          </article>
+
+          <article class="project">
+            <small>Development</small>
+            <h3>Web Development</h3>
+            <p>
+              Responsive websites and interfaces designed to work
+              beautifully across devices.
+            </p>
+          </article>
+
+          <article class="project">
+            <small>Entrepreneurship</small>
+            <h3>Ideas Into Reality</h3>
+            <p>
+              Exploring technology and business opportunities
+              that can solve real-world problems.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+
+        <div class="section-label">04 — Skills</div>
+
+        <h2 class="section-title">Tools & thinking.</h2>
+
+        <p class="section-intro">
+          The technical and creative areas I'm developing across
+          my work.
+        </p>
+
+        <div class="skills">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">Responsive Design</span>
+          <span class="skill">UI Design</span>
+          <span class="skill">Graphic Design</span>
+          <span class="skill">Branding</span>
+          <span class="skill">Creative Direction</span>
+          <span class="skill">Problem Solving</span>
+          <span class="skill">Entrepreneurship</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+
+        <div class="contact-box">
+
+          <div class="section-label">05 — Contact</div>
+
+          <h2>Let's build something.</h2>
+
+          <p>
+            Have an idea, project or opportunity?
+            I'd love to hear about it.
+          </p>
+
+          <div class="buttons" style="justify-content:center;">
+            <a
+              href="https://github.com/adeboyeayomikun36-svg"
+              target="_blank"
+              class="btn btn-primary">
+              GitHub
+            </a>
+
+            <a href="#home" class="btn btn-outline">
+              Back to Top
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+
+      <div>
+        © 2026 Ayomikun Adeboye. All rights reserved.
+      </div>
+
+      <div class="socials">
+        <a
+          href="https://github.com/adeboyeayomikun36-svg"
+          target="_blank">
+          GitHub
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    const menu = document.getElementById("menu");
+    const navLinks = document.getElementById("navLinks");
+
+    menu.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
