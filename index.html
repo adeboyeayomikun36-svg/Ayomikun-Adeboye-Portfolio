@@ -6,9 +6,22 @@
 
   <title>Ayomikun Adeboye | Portfolio</title>
 
-  <meta name="description" content="Ayomikun Adeboye — aspiring software developer, graphic designer and entrepreneur. Building innovative digital solutions and brands with purpose.">
+  <meta name="description"
+    content="Ayomikun Adeboye — software developer, graphic designer and entrepreneur building digital experiences, products and brands with purpose.">
 
   <style>
+    :root {
+      --bg: #070707;
+      --surface: #101010;
+      --surface-2: #171717;
+      --text: #f5f5f5;
+      --muted: #a4a4a4;
+      --gold: #d4af37;
+      --gold-light: #f0d477;
+      --border: rgba(212,175,55,.22);
+      --max: 1120px;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -16,19 +29,10 @@
       scroll-behavior: smooth;
     }
 
-    :root {
-      --black: #0b0b0b;
-      --dark: #111111;
-      --gold: #d4af37;
-      --white: #ffffff;
-      --gray: #b5b5b5;
-      --border: rgba(212, 175, 55, 0.25);
-    }
-
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--black);
-      color: var(--white);
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
@@ -39,143 +43,180 @@
 
     .container {
       width: 90%;
-      max-width: 1100px;
+      max-width: var(--max);
       margin: auto;
     }
 
     /* NAVIGATION */
 
-    header {
+    nav {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      background: rgba(11, 11, 11, 0.95);
-      border-bottom: 1px solid var(--border);
+      right: 0;
       z-index: 1000;
+      background: rgba(7,7,7,.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
 
-    nav {
-      min-height: 70px;
+    .nav-inner {
+      height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .logo span {
       color: var(--gold);
-      letter-spacing: 2px;
     }
 
     .nav-links {
       display: flex;
-      gap: 25px;
+      gap: 28px;
       list-style: none;
     }
 
     .nav-links a {
-      color: var(--white);
-      font-size: 0.95rem;
-      transition: 0.3s;
+      color: #ccc;
+      font-size: .92rem;
+      transition: .3s;
     }
 
     .nav-links a:hover {
       color: var(--gold);
     }
 
+    .menu {
+      display: none;
+      background: none;
+      border: 0;
+      color: white;
+      font-size: 1.7rem;
+      cursor: pointer;
+    }
+
     /* HERO */
 
-    #home {
+    .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: 90px;
-      background:
-        radial-gradient(circle at top right, rgba(212,175,55,0.12), transparent 35%),
-        var(--black);
+      padding-top: 100px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero {
-      max-width: 800px;
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      background: rgba(212,175,55,.10);
+      filter: blur(100px);
+      border-radius: 50%;
+      right: -120px;
+      top: 100px;
     }
 
-    .hero-small {
+    .hero-content {
+      position: relative;
+      max-width: 850px;
+    }
+
+    .eyebrow {
       color: var(--gold);
-      font-weight: bold;
-      letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 15px;
+      letter-spacing: 4px;
+      font-size: .75rem;
+      font-weight: 700;
+      margin-bottom: 22px;
     }
 
-    .hero h1 {
-      font-size: clamp(3rem, 10vw, 6rem);
-      line-height: 1;
-      margin-bottom: 20px;
+    h1 {
+      font-size: clamp(3.2rem, 9vw, 7rem);
+      line-height: .95;
+      letter-spacing: -5px;
+      margin-bottom: 28px;
     }
 
-    .hero h1 span {
+    h1 span {
       color: var(--gold);
     }
 
-    .hero h2 {
-      font-size: clamp(1.3rem, 4vw, 2rem);
-      font-weight: normal;
-      color: var(--gray);
-      margin-bottom: 20px;
-    }
-
-    .hero p {
+    .hero-text {
       max-width: 650px;
-      color: var(--gray);
-      font-size: 1.05rem;
-      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 1.15rem;
+      margin-bottom: 38px;
     }
 
     .buttons {
       display: flex;
+      gap: 14px;
       flex-wrap: wrap;
-      gap: 15px;
     }
 
     .btn {
+      padding: 14px 23px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: .9rem;
+      transition: .3s;
       display: inline-block;
-      padding: 13px 25px;
-      border: 1px solid var(--gold);
-      transition: 0.3s;
-      font-weight: bold;
     }
 
     .btn-primary {
       background: var(--gold);
-      color: var(--black);
+      color: #080808;
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(212,175,55,0.2);
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
     }
 
-    /* GENERAL SECTIONS */
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* SECTIONS */
 
     section {
-      padding: 90px 0;
+      padding: 110px 0;
+    }
+
+    .section-label {
+      color: var(--gold);
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 12px;
     }
 
     .section-title {
-      margin-bottom: 45px;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      letter-spacing: -2px;
+      margin-bottom: 25px;
     }
 
-    .section-title small {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-    }
-
-    .section-title h2 {
-      font-size: 2.5rem;
-      margin-top: 8px;
+    .section-intro {
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 55px;
     }
 
     /* ABOUT */
@@ -183,184 +224,235 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 70px;
       align-items: center;
     }
 
-    .about-text p {
-      color: var(--gray);
+    .about-copy p {
+      color: var(--muted);
       margin-bottom: 18px;
     }
 
-    .highlight {
-      color: var(--gold);
-      font-weight: bold;
+    .about-card {
+      background: linear-gradient(145deg, #151515, #0c0c0c);
+      border: 1px solid var(--border);
+      padding: 38px;
+      position: relative;
     }
 
-    /* SKILLS */
+    .about-card::before {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 70px;
+      background: var(--gold);
+      left: 0;
+      top: 35px;
+    }
 
-    .skills-grid {
+    .about-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+    }
+
+    /* SERVICES */
+
+    .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
-    .skill-card {
-      background: var(--dark);
-      border: 1px solid var(--border);
-      padding: 30px 25px;
-      transition: 0.3s;
+    .card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,.07);
+      padding: 32px;
+      transition: .3s;
     }
 
-    .skill-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--gold);
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: var(--border);
     }
 
-    .skill-card h3 {
+    .card-number {
       color: var(--gold);
-      margin-bottom: 10px;
+      font-size: .8rem;
+      margin-bottom: 35px;
     }
 
-    .skill-card p {
-      color: var(--gray);
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 13px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .95rem;
     }
 
     /* PROJECTS */
 
-    .projects-grid {
+    .projects {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
+      gap: 20px;
     }
 
-    .project-card {
-      background: var(--dark);
-      border: 1px solid var(--border);
+    .project {
+      min-height: 330px;
+      background:
+        linear-gradient(135deg, #191919, #090909);
+      border: 1px solid rgba(255,255,255,.07);
       padding: 30px;
-      transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
     }
 
-    .project-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--gold);
+    .project::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(212,175,55,.08);
+      right: -70px;
+      top: -70px;
     }
 
-    .project-number {
+    .project small {
       color: var(--gold);
-      font-size: 0.9rem;
+      text-transform: uppercase;
       letter-spacing: 2px;
+      margin-bottom: 10px;
     }
 
-    .project-card h3 {
-      font-size: 1.5rem;
-      margin: 12px 0;
+    .project h3 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
     }
 
-    .project-card p {
-      color: var(--gray);
-      margin-bottom: 20px;
+    .project p {
+      color: var(--muted);
+      max-width: 500px;
     }
 
-    /* AYORIDGE */
+    /* SKILLS */
 
-    .brand-section {
-      background: var(--dark);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .brand-box {
-      border: 1px solid var(--gold);
-      padding: 45px 30px;
-      text-align: center;
+    .skill {
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 12px 18px;
+      color: #ddd;
+      font-size: .9rem;
+      transition: .3s;
     }
 
-    .brand-box h2 {
+    .skill:hover {
+      border-color: var(--gold);
       color: var(--gold);
-      font-size: 2.5rem;
-      letter-spacing: 3px;
-    }
-
-    .brand-box p {
-      color: var(--gray);
-      max-width: 650px;
-      margin: 15px auto;
-    }
-
-    .motto {
-      color: var(--white) !important;
-      font-weight: bold;
-      font-size: 1.1rem;
     }
 
     /* CONTACT */
 
     .contact-box {
-      max-width: 700px;
+      background: linear-gradient(135deg, #151515, #0b0b0b);
+      border: 1px solid var(--border);
+      padding: 60px;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      margin-bottom: 18px;
     }
 
     .contact-box p {
-      color: var(--gray);
-      margin-bottom: 25px;
-    }
-
-    .contact-list {
-      list-style: none;
-    }
-
-    .contact-list li {
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .contact-list strong {
-      color: var(--gold);
-      display: inline-block;
-      width: 100px;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 30px;
     }
 
     /* FOOTER */
 
     footer {
-      text-align: center;
+      border-top: 1px solid rgba(255,255,255,.07);
       padding: 30px 0;
-      border-top: 1px solid var(--border);
-      color: var(--gray);
     }
 
-    footer span {
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #888;
+      font-size: .85rem;
+    }
+
+    .socials {
+      display: flex;
+      gap: 18px;
+    }
+
+    .socials a:hover {
       color: var(--gold);
     }
 
     /* MOBILE */
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
+
+      .menu {
+        display: block;
+      }
 
       .nav-links {
         display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: #0a0a0a;
+        flex-direction: column;
+        padding: 25px 5%;
+        border-bottom: 1px solid rgba(255,255,255,.08);
       }
 
-      .hero h1 {
-        font-size: 3.5rem;
+      .nav-links.active {
+        display: flex;
+      }
+
+      h1 {
+        letter-spacing: -3px;
       }
 
       .about-grid,
-      .skills-grid,
-      .projects-grid {
+      .cards,
+      .projects {
         grid-template-columns: 1fr;
       }
 
-      section {
-        padding: 70px 0;
+      .about-grid {
+        gap: 35px;
       }
 
-      .section-title h2 {
-        font-size: 2rem;
+      .contact-box {
+        padding: 40px 22px;
       }
 
-      .contact-list strong {
-        width: 85px;
+      .footer-inner {
+        flex-direction: column;
       }
     }
   </style>
@@ -368,57 +460,52 @@
 
 <body>
 
-  <header>
-    <div class="container">
-      <nav>
-        <div class="logo">AA</div>
+  <nav>
+    <div class="container nav-inner">
+      <a href="#home" class="logo">AYOMIKUN<span>.</span></a>
 
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#ayoridge">AYORIDGE</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <button class="menu" id="menu">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
   <main>
 
     <!-- HERO -->
-
-    <section id="home">
+    <section class="hero" id="home">
       <div class="container">
-        <div class="hero">
+        <div class="hero-content">
 
-          <div class="hero-small">
-            Welcome to my portfolio
+          <div class="eyebrow">
+            Software • Design • Entrepreneurship
           </div>
 
           <h1>
-            Ayomikun<br>
-            <span>Adeboye.</span>
+            I build things<br>
+            that <span>matter.</span>
           </h1>
 
-          <h2>
-            Software Developer · Graphic Designer · Entrepreneur
-          </h2>
-
-          <p>
-            Creating innovative digital solutions and building brands
-            with purpose. I am passionate about technology, creativity,
-            business and turning ideas into something real.
+          <p class="hero-text">
+            I'm Ayomikun Adeboye — a software developer, graphic designer
+            and entrepreneur focused on creating useful digital experiences,
+            products and brands with purpose.
           </p>
 
           <div class="buttons">
-            <a href="#projects" class="btn btn-primary">
+            <a href="#work" class="btn btn-primary">
               View My Work
             </a>
 
-            <a href="#contact" class="btn">
-              Contact Me
+            <a href="#contact" class="btn btn-outline">
+              Let's Talk
             </a>
           </div>
 
@@ -426,245 +513,246 @@
       </div>
     </section>
 
-
     <!-- ABOUT -->
-
     <section id="about">
       <div class="container">
 
-        <div class="section-title">
-          <small>About Me</small>
-          <h2>Building with purpose.</h2>
-        </div>
+        <div class="section-label">01 — About</div>
 
         <div class="about-grid">
 
-          <div class="about-text">
+          <div class="about-copy">
+            <h2 class="section-title">
+              More than just<br>code.
+            </h2>
+
             <p>
-              I'm <span class="highlight">Ayomikun Adeboye</span>,
-              an aspiring software developer, graphic designer
-              and entrepreneur.
+              I combine technology, creativity and business thinking
+              to turn ideas into digital experiences.
             </p>
 
             <p>
-              I enjoy combining technology, creativity and
-              entrepreneurship to create useful digital experiences
-              and meaningful brands.
-            </p>
-
-            <p>
-              My goal is simple: keep learning, keep building,
-              and create work that makes an impact.
+              Whether I'm building a website, developing a digital
+              product, creating a visual identity or exploring a new
+              business idea, my goal is the same: create work that
+              is useful, memorable and built to last.
             </p>
           </div>
 
-          <div>
-            <div class="skill-card">
-              <h3>My Vision</h3>
-              <p>
-                To build innovative solutions, develop valuable
-                skills and create brands that stand for quality,
-                creativity and purpose.
-              </p>
-            </div>
+          <div class="about-card">
+            <h3>My approach</h3>
+
+            <p>
+              Think clearly. Design intentionally. Build properly.
+              Keep learning. Keep improving.
+            </p>
           </div>
 
         </div>
       </div>
     </section>
 
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+
+        <div class="section-label">02 — What I Do</div>
+
+        <h2 class="section-title">Capabilities</h2>
+
+        <p class="section-intro">
+          A multidisciplinary approach that brings development,
+          design and business together.
+        </p>
+
+        <div class="cards">
+
+          <div class="card">
+            <div class="card-number">01</div>
+            <h3>Software Development</h3>
+            <p>
+              Building responsive, functional and user-focused
+              digital experiences with modern web technologies.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">02</div>
+            <h3>Graphic Design</h3>
+            <p>
+              Creating visual identities, digital graphics and
+              designs that communicate ideas clearly.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">03</div>
+            <h3>Digital Products</h3>
+            <p>
+              Turning ideas into practical digital products and
+              experiences designed around real problems.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+      <div class="container">
+
+        <div class="section-label">03 — Selected Work</div>
+
+        <h2 class="section-title">Things I'm building.</h2>
+
+        <p class="section-intro">
+          A growing collection of digital projects, creative work
+          and experiments.
+        </p>
+
+        <div class="projects">
+
+          <article class="project">
+            <small>Digital Product</small>
+            <h3>Product & Web Experiences</h3>
+            <p>
+              Digital experiences focused on usability, performance
+              and meaningful interaction.
+            </p>
+          </article>
+
+          <article class="project">
+            <small>Creative Direction</small>
+            <h3>Brand & Visual Design</h3>
+            <p>
+              Visual concepts and brand systems created to give
+              ideas a strong identity.
+            </p>
+          </article>
+
+          <article class="project">
+            <small>Development</small>
+            <h3>Web Development</h3>
+            <p>
+              Responsive websites and interfaces designed to work
+              beautifully across devices.
+            </p>
+          </article>
+
+          <article class="project">
+            <small>Entrepreneurship</small>
+            <h3>Ideas Into Reality</h3>
+            <p>
+              Exploring technology and business opportunities
+              that can solve real-world problems.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
 
     <!-- SKILLS -->
-
     <section id="skills">
       <div class="container">
 
-        <div class="section-title">
-          <small>What I Do</small>
-          <h2>Skills & Interests</h2>
-        </div>
+        <div class="section-label">04 — Skills</div>
 
-        <div class="skills-grid">
+        <h2 class="section-title">Tools & thinking.</h2>
 
-          <div class="skill-card">
-            <h3>Software Development</h3>
-            <p>
-              Learning and building digital products,
-              websites and practical software solutions.
-            </p>
-          </div>
+        <p class="section-intro">
+          The technical and creative areas I'm developing across
+          my work.
+        </p>
 
-          <div class="skill-card">
-            <h3>Graphic Design</h3>
-            <p>
-              Creating visual concepts, digital designs
-              and brand experiences.
-            </p>
-          </div>
-
-          <div class="skill-card">
-            <h3>Entrepreneurship</h3>
-            <p>
-              Developing ideas, building brands and exploring
-              opportunities that create real value.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- PROJECTS -->
-
-    <section id="projects">
-      <div class="container">
-
-        <div class="section-title">
-          <small>My Work</small>
-          <h2>Projects</h2>
-        </div>
-
-        <div class="projects-grid">
-
-          <div class="project-card">
-            <div class="project-number">PROJECT 01</div>
-            <h3>Personal Portfolio</h3>
-            <p>
-              A responsive personal portfolio designed to
-              showcase my skills, projects and professional journey.
-            </p>
-            <a href="#contact" class="btn">
-              More Coming Soon
-            </a>
-          </div>
-
-          <div class="project-card">
-            <div class="project-number">PROJECT 02</div>
-            <h3>Digital Solutions</h3>
-            <p>
-              Exploring practical technology solutions that
-              turn ideas and problems into useful digital products.
-            </p>
-            <a href="#contact" class="btn">
-              More Coming Soon
-            </a>
-          </div>
-
-          <div class="project-card">
-            <div class="project-number">PROJECT 03</div>
-            <h3>Creative Design</h3>
-            <p>
-              Graphic and visual design work focused on
-              communication, identity and creativity.
-            </p>
-            <a href="#contact" class="btn">
-              More Coming Soon
-            </a>
-          </div>
-
-          <div class="project-card">
-            <div class="project-number">PROJECT 04</div>
-            <h3>AYORIDGE</h3>
-            <p>
-              A brand-building project focused on creating
-              products and experiences with quality and purpose.
-            </p>
-            <a href="#ayoridge" class="btn">
-              Explore Brand
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- AYORIDGE -->
-
-    <section id="ayoridge" class="brand-section">
-      <div class="container">
-
-        <div class="brand-box">
-
-          <h2>AYORIDGE</h2>
-
-          <p>
-            A brand built around creativity, quality and purpose.
-            This space will showcase the evolution of AYORIDGE
-            and the work behind the brand.
-          </p>
-
-          <p class="motto">
-            “Building Today. Leading Tomorrow.”
-          </p>
-
+        <div class="skills">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">Responsive Design</span>
+          <span class="skill">UI Design</span>
+          <span class="skill">Graphic Design</span>
+          <span class="skill">Branding</span>
+          <span class="skill">Creative Direction</span>
+          <span class="skill">Problem Solving</span>
+          <span class="skill">Entrepreneurship</span>
         </div>
 
       </div>
     </section>
-
 
     <!-- CONTACT -->
-
     <section id="contact">
       <div class="container">
 
-        <div class="section-title">
-          <small>Get In Touch</small>
-          <h2>Let's build something.</h2>
-        </div>
-
         <div class="contact-box">
 
+          <div class="section-label">05 — Contact</div>
+
+          <h2>Let's build something.</h2>
+
           <p>
-            Interested in working together, discussing an idea,
-            or simply connecting? I'd be happy to hear from you.
+            Have an idea, project or opportunity?
+            I'd love to hear about it.
           </p>
 
-          <ul class="contact-list">
+          <div class="buttons" style="justify-content:center;">
+            <a
+              href="https://github.com/adeboyeayomikun36-svg"
+              target="_blank"
+              class="btn btn-primary">
+              GitHub
+            </a>
 
-            <li>
-              <strong>Email</strong>
-              <a href="mailto:adeboyeayomikun36@gmail.com">
-                adeboyeayomikun36@gmail.com
-              </a>
-            </li>
-
-            <li>
-              <strong>Phone</strong>
-              <a href="tel:09017018979">
-                09017018979
-              </a>
-            </li>
-
-            <li>
-              <strong>WhatsApp</strong>
-              <a href="https://wa.me/2348169431995">
-                WhatsApp
-              </a>
-            </li>
-
-            <li>
-              <strong>Instagram</strong>
-              <span>@ayoridge</span>
-            </li>
-
-          </ul>
+            <a href="#home" class="btn btn-outline">
+              Back to Top
+            </a>
+          </div>
 
         </div>
+
       </div>
     </section>
 
   </main>
 
-
   <footer>
-    <p>
-      © 2026 <span>Ayomikun Adeboye</span>.
-      Building Today. Leading Tomorrow.
-    </p>
+    <div class="container footer-inner">
+
+      <div>
+        © 2026 Ayomikun Adeboye. All rights reserved.
+      </div>
+
+      <div class="socials">
+        <a
+          href="https://github.com/adeboyeayomikun36-svg"
+          target="_blank">
+          GitHub
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+      </div>
+
+    </div>
   </footer>
+
+  <script>
+    const menu = document.getElementById("menu");
+    const navLinks = document.getElementById("navLinks");
+
+    menu.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+      });
+    });
+  </script>
 
 </body>
 </html>
