@@ -128,7 +128,31 @@
     .hero-content {
       position: relative;
       max-width: 850px;
-    }
+    }.hero-image {
+  margin-top: 45px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hero-image img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 45px rgba(212, 175, 55, 0.18);
+  animation: floatPortrait 4s ease-in-out infinite;
+}
+
+@keyframes floatPortrait {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
     .eyebrow {
       color: var(--gold);
@@ -483,7 +507,12 @@
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-content">
-
+<div class="hero-image">
+  <img
+    src="file_00000000c72082468272b4d5a6ab652e.png"
+    alt="Ayomikun Adeboye"
+  >
+</div>
           <div class="eyebrow">
             Software • Design • Entrepreneurship
           </div>
